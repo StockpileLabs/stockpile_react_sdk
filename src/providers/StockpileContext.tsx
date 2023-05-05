@@ -1,17 +1,16 @@
 import * as React from 'react';
 import { createContext, useContext, useMemo, ReactNode } from 'react';
-//TODO
-// import { SDK } from 'stockpile_sdk';
+import { SDK } from '@stockpileprotocol/sdk';
 
 interface StockpileContextValue {
-    // sdk : SDK;
+    sdk : SDK;
 }
 
 const StockpileContext = createContext<StockpileContextValue | null>(null);
 
 interface StockpileProviderProps {
     children: ReactNode;
-    //sdk: SDK;
+    sdk: SDK;
 }
 
 const StockpileProvider: React.FC<StockpileProviderProps> = ({children, sdk}) => {
