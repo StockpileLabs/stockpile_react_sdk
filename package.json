@@ -1,12 +1,26 @@
 {
-  "name": "stockpile_sdk",
-  "version": "1.0.0",
+  "name": "@stockpileprotocol/react_sdk",
+  "version": "0.0.1",
   "description": "React sdk for Stockpile",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "browser": {
+    "fs": false,
+    "net": false,
+    "tls": false
   },
-  "keywords": [],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf lib",
+    "build": "npm run clean && tsup"
+  },
+  "keywords": [
+    "stockpile",
+    "react",
+    "sdk"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -18,7 +32,21 @@
     "@solana/spl-token": "^0.3.7",
     "@solana/wallet-adapter-react": "^0.15.32",
     "@solana/web3.js": "^1.75.0",
-    "@stockpileprotocol/sdk": "^1.0.0",
+    "@stockpileprotocol/sdk": "^1.0.2",
     "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access":"public",
+    "registry": "https://npm.pkg.github.com/StockpileProtocol"
   }
 }
